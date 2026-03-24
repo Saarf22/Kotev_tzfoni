@@ -892,6 +892,22 @@ ul { list-style: none; }
     line-height: 1.65;
 }
 
+/* FB hint label on gallery cards */
+.gallery-fb-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(0,180,216,0.6);
+    transition: var(--t);
+}
+
+.gallery-card:hover .gallery-fb-hint {
+    color: var(--ice);
+}
+
 /* Video card */
 .gallery-card-video {
     background: linear-gradient(135deg, rgba(0,180,216,0.08), rgba(0,119,182,0.06));
