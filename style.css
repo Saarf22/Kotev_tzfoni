@@ -345,7 +345,58 @@ ul { list-style: none; }
     color: rgba(255,255,255,0.55);
     font-weight: 300;
     letter-spacing: 1px;
+    margin-bottom: 16px;
+}
+
+/* Trust bar */
+.hero-trust {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
     margin-bottom: 28px;
+}
+
+.hero-trust-stars { color: #f5a623; font-size: 16px; letter-spacing: 2px; }
+.hero-trust-score { color: var(--ice); font-weight: 700; font-size: 16px; }
+.hero-trust-sep { color: rgba(255,255,255,0.25); }
+
+/* Big phone number */
+.hero-phone-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 900;
+    color: var(--white);
+    text-decoration: none;
+    direction: ltr;
+    margin-bottom: 28px;
+    padding: 14px 32px;
+    background: rgba(0,180,216,0.12);
+    border: 2px solid rgba(0,180,216,0.4);
+    border-radius: 60px;
+    transition: var(--t);
+    letter-spacing: 1px;
+}
+
+.hero-phone-cta i { color: var(--ice); font-size: 0.7em; }
+.hero-phone-cta:hover {
+    background: rgba(0,180,216,0.22);
+    border-color: var(--ice);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 40px rgba(0,180,216,0.35);
+}
+
+/* Urgency line */
+.hero-urgency {
+    margin-top: 20px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.3px;
 }
 
 .hero-tags {
