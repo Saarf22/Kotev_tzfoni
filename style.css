@@ -700,6 +700,12 @@ html[dir="ltr"] .area-list li:hover {
     color: rgba(255,255,255,0.35);
 }
 
+.footer-credit {
+    font-size: 11px;
+    color: rgba(255,255,255,0.22);
+    letter-spacing: 0.5px;
+}
+
 /* ================================================
    SCROLL FADE-IN
 ================================================ */
