@@ -455,12 +455,21 @@ ul { list-style: none; }
     align-items: center;
 }
 
+.stat-value {
+    display: flex;
+    flex-direction: row;
+    direction: ltr;
+    justify-content: center;
+    align-items: flex-end;
+    height: 48px;
+    gap: 2px;
+}
+
 .stat-num {
     font-size: 40px;
     font-weight: 900;
     color: var(--ice);
     line-height: 1;
-    display: inline;
 }
 
 .stat-unit {
