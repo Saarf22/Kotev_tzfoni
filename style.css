@@ -892,6 +892,90 @@ ul { list-style: none; }
     line-height: 1.65;
 }
 
+/* About perks */
+.about-perks {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 24px 0 20px;
+    padding: 20px;
+    background: rgba(0,180,216,0.06);
+    border: 1px solid rgba(0,180,216,0.15);
+    border-radius: 14px;
+}
+
+.perk-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.perk-item i {
+    color: var(--ice);
+    font-size: 16px;
+    margin-top: 2px;
+    flex-shrink: 0;
+    width: 18px;
+    text-align: center;
+}
+
+.perk-item div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.perk-item strong {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.perk-item span {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.5;
+}
+
+/* Gallery real images */
+.gallery-card-img {
+    position: relative;
+    overflow: hidden;
+    padding: 0 !important;
+    min-height: 220px;
+}
+
+.gallery-real-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+    min-height: 220px;
+}
+
+.gallery-card-img:hover .gallery-real-img {
+    transform: scale(1.06);
+}
+
+.gallery-img-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(6,15,30,0.92) 0%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.gallery-img-overlay h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--white);
+}
+
 /* FB hint label on gallery cards */
 .gallery-fb-hint {
     display: inline-flex;
