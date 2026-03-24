@@ -4,12 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>הקוטב הצפוני - מיזוג אוויר וחשמל | איציק דרורי</title>
+    <meta name="description" content="איציק דרורי - טכנאי מזגנים וחשמל באזור המרכז. התקנה, תיקון, מילוי גז. שירות מקצועי ומהיר.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<!-- FLOATING CALL BUTTON -->
+<a href="tel:0732721573" class="float-cta" id="floatCta" aria-label="Call Now">
+    <i class="fas fa-phone"></i>
+    <span data-he="התקשר" data-en="Call">התקשר</span>
+</a>
 
 <!-- NAVBAR -->
 <header class="navbar" id="navbar">
@@ -18,9 +25,15 @@
             <i class="fas fa-snowflake logo-icon"></i>
             <div class="logo-text">
                 <span class="logo-main" data-he="הקוטב הצפוני" data-en="The North Pole">הקוטב הצפוני</span>
-                <span class="logo-sub" data-he="מיזוג אוויר וחשמל" data-en="AC & Electrical Services">מיזוג אוויר וחשמל</span>
+                <span class="logo-sub" data-he="מיזוג אוויר וחשמל" data-en="AC & Electrical">מיזוג אוויר וחשמל</span>
             </div>
         </div>
+        <nav class="nav-links">
+            <a href="#services" data-he="שירותים" data-en="Services">שירותים</a>
+            <a href="#about-itzik" data-he="אודות" data-en="About">אודות</a>
+            <a href="#gallery" data-he="גלריה" data-en="Gallery">גלריה</a>
+            <a href="#contact" data-he="צור קשר" data-en="Contact">צור קשר</a>
+        </nav>
         <div class="nav-actions">
             <a href="tel:0732721573" class="btn-call">
                 <i class="fas fa-phone"></i>
@@ -32,12 +45,25 @@
 </header>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" id="hero">
+    <div class="hero-particles" id="heroParticles"></div>
+    <div class="hero-glow"></div>
     <div class="hero-content">
-        <div class="hero-badge" data-he="✓ מורשה ומוסמך" data-en="✓ Licensed & Certified">✓ מורשה ומוסמך</div>
-        <h1 class="hero-title" data-he="הקוטב הצפוני" data-en="The North Pole">הקוטב הצפוני</h1>
+        <div class="hero-badge">
+            <span class="badge-dot"></span>
+            <span data-he="זמין עכשיו · 6 ימים בשבוע" data-en="Available Now · 6 Days a Week">זמין עכשיו · 6 ימים בשבוע</span>
+        </div>
+        <h1 class="hero-title">
+            <span class="hero-title-top" data-he="הקוטב" data-en="The">הקוטב</span>
+            <span class="hero-title-main" data-he="הצפוני" data-en="North Pole">הצפוני</span>
+        </h1>
         <p class="hero-subtitle" data-he="מיזוג אוויר וחשמל — איציק דרורי" data-en="Air Conditioning & Electrical — Itzik Drori">מיזוג אוויר וחשמל — איציק דרורי</p>
-        <p class="hero-desc" data-he="שירות מקצועי, אמין ומהיר באזור המרכז" data-en="Professional, reliable and fast service in Central Israel">שירות מקצועי, אמין ומהיר באזור המרכז</p>
+        <div class="hero-tags">
+            <span><i class="fas fa-check-circle"></i> <span data-he="אלקטרה" data-en="Electra">אלקטרה</span></span>
+            <span><i class="fas fa-check-circle"></i> <span data-he="אלקו" data-en="Elco">אלקו</span></span>
+            <span><i class="fas fa-check-circle"></i> <span data-he="אינוורטר" data-en="Inverter">אינוורטר</span></span>
+            <span><i class="fas fa-check-circle"></i> <span data-he="מורשה ומוסמך" data-en="Licensed">מורשה ומוסמך</span></span>
+        </div>
         <div class="hero-ctas">
             <a href="tel:0732721573" class="btn-primary">
                 <i class="fas fa-phone"></i>
@@ -49,21 +75,33 @@
             </a>
         </div>
     </div>
-    <div class="hero-stats">
-        <div class="stat">
-            <span class="stat-num">9.5</span>
-            <span class="stat-label" data-he="דירוג כוכבים" data-en="Star Rating">דירוג כוכבים</span>
+    <div class="hero-stats-bar">
+        <div class="hero-stat">
+            <span class="stat-num" data-target="9.5" data-decimal="1">0</span>
+            <span class="stat-unit">/10</span>
+            <span class="stat-label" data-he="דירוג" data-en="Rating">דירוג</span>
         </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-            <span class="stat-num">98%</span>
+        <div class="stat-sep"></div>
+        <div class="hero-stat">
+            <span class="stat-num" data-target="98" data-decimal="0">0</span>
+            <span class="stat-unit">%</span>
             <span class="stat-label" data-he="מקצועיות" data-en="Professionalism">מקצועיות</span>
         </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-            <span class="stat-num">96%</span>
+        <div class="stat-sep"></div>
+        <div class="hero-stat">
+            <span class="stat-num" data-target="16" data-decimal="0">0</span>
+            <span class="stat-unit">+</span>
+            <span class="stat-label" data-he="ביקורות מאומתות" data-en="Verified Reviews">ביקורות מאומתות</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="hero-stat">
+            <span class="stat-num" data-target="96" data-decimal="0">0</span>
+            <span class="stat-unit">%</span>
             <span class="stat-label" data-he="דיוק בזמנים" data-en="On Time">דיוק בזמנים</span>
         </div>
+    </div>
+    <div class="hero-scroll-hint">
+        <i class="fas fa-chevron-down"></i>
     </div>
 </section>
 
@@ -73,44 +111,96 @@
         <div class="section-header">
             <span class="section-tag" data-he="מה אנחנו עושים" data-en="What We Do">מה אנחנו עושים</span>
             <h2 data-he="השירותים שלנו" data-en="Our Services">השירותים שלנו</h2>
+            <p class="section-desc" data-he="פתרון מקיף לכל צרכי המיזוג והחשמל שלך" data-en="Complete solution for all your AC and electrical needs">פתרון מקיף לכל צרכי המיזוג והחשמל שלך</p>
         </div>
         <div class="services-grid">
             <div class="service-card">
-                <div class="service-icon"><i class="fas fa-user-cog"></i></div>
+                <div class="service-icon-wrap"><i class="fas fa-user-cog"></i></div>
                 <h3 data-he="ביקור טכנאי" data-en="Technician Visit">ביקור טכנאי</h3>
                 <p data-he="אבחון מקצועי של תקלות מזגן בבית הלקוח" data-en="Professional AC fault diagnosis at your home">אבחון מקצועי של תקלות מזגן בבית הלקוח</p>
+                <div class="card-line"></div>
             </div>
             <div class="service-card">
-                <div class="service-icon"><i class="fas fa-tools"></i></div>
+                <div class="service-icon-wrap"><i class="fas fa-tools"></i></div>
                 <h3 data-he="תיקון מזגנים" data-en="AC Repair">תיקון מזגנים</h3>
                 <p data-he="תיקון כל סוגי המזגנים — מהיר, מקצועי ובמחיר הוגן" data-en="Repair of all AC types — fast, professional, fair price">תיקון כל סוגי המזגנים — מהיר, מקצועי ובמחיר הוגן</p>
+                <div class="card-line"></div>
             </div>
             <div class="service-card">
-                <div class="service-icon"><i class="fas fa-wind"></i></div>
+                <div class="service-icon-wrap"><i class="fas fa-wind"></i></div>
                 <h3 data-he="מילוי גז מזגן" data-en="Refrigerant Refill">מילוי גז מזגן</h3>
-                <p data-he="מילוי גז קירור מקצועי לשיפור ביצועי המזגן" data-en="Professional refrigerant refill to restore AC performance">מילוי גז קירור מקצועי לשיפור ביצועי המזגן</p>
+                <p data-he="מילוי גז קירור מקצועי לשיפור ביצועי המזגן" data-en="Professional refrigerant refill to restore performance">מילוי גז קירור מקצועי לשיפור ביצועי המזגן</p>
+                <div class="card-line"></div>
             </div>
             <div class="service-card">
-                <div class="service-icon"><i class="fas fa-bolt"></i></div>
+                <div class="service-icon-wrap"><i class="fas fa-bolt"></i></div>
                 <h3 data-he="עבודות חשמל" data-en="Electrical Work">עבודות חשמל</h3>
                 <p data-he="טיפולי חשמל הקשורים למזגן ולמערכות קירור" data-en="Electrical work related to AC and cooling systems">טיפולי חשמל הקשורים למזגן ולמערכות קירור</p>
+                <div class="card-line"></div>
             </div>
             <div class="service-card">
-                <div class="service-icon"><i class="fas fa-snowflake"></i></div>
+                <div class="service-icon-wrap"><i class="fas fa-snowflake"></i></div>
                 <h3 data-he="התקנת מזגן" data-en="AC Installation">התקנת מזגן</h3>
                 <p data-he="התקנה מלאה ומסודרת של מזגן ביחידה בודדת" data-en="Full clean installation of a single-unit AC">התקנה מלאה ומסודרת של מזגן ביחידה בודדת</p>
+                <div class="card-line"></div>
             </div>
-            <div class="service-card">
-                <div class="service-icon"><i class="fas fa-building"></i></div>
+            <div class="service-card service-card-featured">
+                <div class="service-icon-wrap"><i class="fas fa-building"></i></div>
                 <h3 data-he="מזגן מיני מרכזי" data-en="Mini Central AC">מזגן מיני מרכזי</h3>
-                <p data-he="תכנון והתקנת מערכות מיני מרכזי לבית ולעסק" data-en="Design and installation of multi-split systems for homes & offices">תכנון והתקנת מערכות מיני מרכזי לבית ולעסק</p>
+                <p data-he="תכנון והתקנת מערכות מיני מרכזי לבית ולעסק" data-en="Design and installation of multi-split systems">תכנון והתקנת מערכות מיני מרכזי לבית ולעסק</p>
+                <div class="card-line"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT ITZIK -->
+<section class="section section-dark" id="about-itzik">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-photo-side">
+                <div class="about-photo-frame">
+                    <img src="assets/img/itzik.jpg" alt="איציק דרורי" class="about-photo">
+                    <div class="photo-ring"></div>
+                </div>
+                <div class="about-rating-pill">
+                    <span class="stars-inline">★★★★★</span>
+                    <strong>9.5/10</strong>
+                    <span data-he="· 16 ביקורות" data-en="· 16 reviews">· 16 ביקורות</span>
+                </div>
+            </div>
+            <div class="about-content">
+                <span class="section-tag section-tag-light" data-he="מי אנחנו" data-en="Who We Are">מי אנחנו</span>
+                <h2 data-he="היכרות עם איציק דרורי" data-en="Meet Itzik Drori">היכרות עם איציק דרורי</h2>
+                <p data-he="איציק דרורי הוא טכנאי מזגנים וחשמלאי מוסמך, הבעלים של הקוטב הצפוני. הוא מתמחה בהתקנה, תיקון וניקוי מזגנים ממיטב המותגים — אלקטרה, אלקו ואינוורטר." data-en="Itzik Drori is a certified AC technician and electrician, owner of The North Pole. He specializes in installation, repair and cleaning of AC units from top brands — Electra, Elco and Inverter.">איציק דרורי הוא טכנאי מזגנים וחשמלאי מוסמך, הבעלים של הקוטב הצפוני. הוא מתמחה בהתקנה, תיקון וניקוי מזגנים ממיטב המותגים — אלקטרה, אלקו ואינוורטר.</p>
+                <p data-he="מה שמבדיל את איציק: הוא לא ממציא תקלות, לא מנפח מחירים ולא עוזב לפני שהכל עובד כמו שצריך. לקוחות חוזרים אליו שוב ושוב." data-en="What sets Itzik apart: he never invents faults, never inflates prices, and never leaves before everything works perfectly. Customers come back to him again and again.">מה שמבדיל את איציק: הוא לא ממציא תקלות, לא מנפח מחירים ולא עוזב לפני שהכל עובד כמו שצריך. לקוחות חוזרים אליו שוב ושוב.</p>
+                <div class="about-specs">
+                    <div class="spec-item">
+                        <i class="fas fa-certificate"></i>
+                        <span data-he="מורשה ומוסמך" data-en="Licensed & Certified">מורשה ומוסמך</span>
+                    </div>
+                    <div class="spec-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span data-he="מושב קדרון, אזור המרכז" data-en="Moshav Kadron, Central Israel">מושב קדרון, אזור המרכז</span>
+                    </div>
+                    <div class="spec-item">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span class="ltr">054-950-6888 | 073-272-1573</span>
+                    </div>
+                </div>
+                <div class="brand-tags">
+                    <span>Electra</span>
+                    <span>Elco</span>
+                    <span>Inverter</span>
+                    <span data-he="כל המותגים" data-en="All Brands">כל המותגים</span>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
 <!-- WHY US -->
-<section class="section section-alt" id="about">
+<section class="section" id="why">
     <div class="container">
         <div class="section-header">
             <span class="section-tag" data-he="למה לבחור בנו" data-en="Why Choose Us">למה לבחור בנו</span>
@@ -118,24 +208,92 @@
         </div>
         <div class="why-grid">
             <div class="why-card">
+                <div class="why-num">01</div>
                 <div class="why-icon"><i class="fas fa-shield-alt"></i></div>
                 <h3 data-he="ללא עמלות מיותרות" data-en="No Unnecessary Charges">ללא עמלות מיותרות</h3>
-                <p data-he="איציק לא ממציא תקלות ולא מנפח מחירים. מחיר הוגן וכנה תמיד." data-en="Itzik does not invent faults or inflate prices. Always honest and fair.">איציק לא ממציא תקלות ולא מנפח מחירים. מחיר הוגן וכנה תמיד.</p>
+                <p data-he="איציק לא ממציא תקלות ולא מנפח מחירים. מחיר הוגן וכנה תמיד." data-en="No invented faults, no inflated prices. Always honest and fair.">איציק לא ממציא תקלות ולא מנפח מחירים. מחיר הוגן וכנה תמיד.</p>
             </div>
             <div class="why-card">
+                <div class="why-num">02</div>
                 <div class="why-icon"><i class="fas fa-clock"></i></div>
                 <h3 data-he="דיוק בזמנים" data-en="Always Punctual">דיוק בזמנים</h3>
-                <p data-he="מגיע בזמן שנקבע. מכבד את הזמן שלך." data-en="Arrives at the agreed time. Respects your schedule.">מגיע בזמן שנקבע. מכבד את הזמן שלך.</p>
+                <p data-he="מגיע בזמן שנקבע. מכבד את הזמן שלך. 96% דיוק." data-en="Arrives on time. Respects your schedule. 96% punctuality rate.">מגיע בזמן שנקבע. מכבד את הזמן שלך. 96% דיוק.</p>
             </div>
             <div class="why-card">
+                <div class="why-num">03</div>
                 <div class="why-icon"><i class="fas fa-broom"></i></div>
                 <h3 data-he="עבודה נקייה ומסודרת" data-en="Clean & Tidy Work">עבודה נקייה ומסודרת</h3>
-                <p data-he="עובד בצורה נקייה ומסודרת, ולא עוזב לפני שהכל תקין." data-en="Works cleanly and neatly. Never leaves before confirming everything works.">עובד בצורה נקייה ומסודרת, ולא עוזב לפני שהכל תקין.</p>
+                <p data-he="עובד בצורה נקייה ומסודרת, ולא עוזב לפני שהכל תקין." data-en="Works cleanly and neatly. Never leaves before everything is confirmed working.">עובד בצורה נקייה ומסודרת, ולא עוזב לפני שהכל תקין.</p>
             </div>
             <div class="why-card">
+                <div class="why-num">04</div>
                 <div class="why-icon"><i class="fas fa-headset"></i></div>
                 <h3 data-he="זמינות גבוהה" data-en="High Availability">זמינות גבוהה</h3>
-                <p data-he="זמין 6 ימים בשבוע, כולל שישי ומוצ״ש — כי תקלות לא מחכות." data-en="Available 6 days a week including Friday & Saturday night — because faults don't wait.">זמין 6 ימים בשבוע, כולל שישי ומוצ״ש — כי תקלות לא מחכות.</p>
+                <p data-he="זמין 6 ימים בשבוע, כולל שישי ומוצ״ש — כי תקלות לא מחכות." data-en="Available 6 days a week including Friday & Saturday night.">זמין 6 ימים בשבוע, כולל שישי ומוצ״ש — כי תקלות לא מחכות.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- GALLERY / MEDIA -->
+<section class="section section-dark" id="gallery">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag section-tag-light" data-he="הפרויקטים שלנו" data-en="Our Work">הפרויקטים שלנו</span>
+            <h2 data-he="תמונות ומדיה" data-en="Photos & Media">תמונות ומדיה</h2>
+            <p class="section-desc section-desc-light" data-he="הצצה לעבודה שלנו בשטח" data-en="A glimpse of our work in the field">הצצה לעבודה שלנו בשטח</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-card gallery-card-large">
+                <div class="gallery-card-inner">
+                    <div class="gallery-icon-bg"><i class="fas fa-snowflake"></i></div>
+                    <div class="gallery-card-content">
+                        <h3 data-he="התקנות מזגנים" data-en="AC Installations">התקנות מזגנים</h3>
+                        <p data-he="התקנה מקצועית של מזגן ביתי ומסחרי" data-en="Professional home and commercial AC installation">התקנה מקצועית של מזגן ביתי ומסחרי</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-card">
+                <div class="gallery-card-inner">
+                    <div class="gallery-icon-bg"><i class="fas fa-tools"></i></div>
+                    <div class="gallery-card-content">
+                        <h3 data-he="תיקונים בשטח" data-en="Field Repairs">תיקונים בשטח</h3>
+                        <p data-he="טיפול מהיר בכל תקלה" data-en="Quick repair of any fault">טיפול מהיר בכל תקלה</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-card gallery-card-video" id="videoCard">
+                <div class="gallery-card-inner">
+                    <div class="video-play-wrap">
+                        <div class="play-btn"><i class="fas fa-play"></i></div>
+                        <div class="video-meta">
+                            <span class="video-views"><i class="fas fa-eye"></i> 2,700+</span>
+                        </div>
+                    </div>
+                    <div class="gallery-card-content">
+                        <h3 data-he="הכנה לפני ניקוי מזגן" data-en="Preparing for AC Cleaning">הכנה לפני ניקוי מזגן</h3>
+                        <p data-he="סרטון מקצועי מהשטח — צפו בפייסבוק" data-en="Professional field video — watch on Facebook">סרטון מקצועי מהשטח — צפו בפייסבוק</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-card">
+                <div class="gallery-card-inner">
+                    <div class="gallery-icon-bg"><i class="fas fa-wind"></i></div>
+                    <div class="gallery-card-content">
+                        <h3 data-he="מילוי גז" data-en="Gas Refill">מילוי גז</h3>
+                        <p data-he="שיקום ביצועי המזגן" data-en="Restoring AC performance">שיקום ביצועי המזגן</p>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-card gallery-fb-card">
+                <a href="https://www.facebook.com/people/%D7%90%D7%99%D7%A6%D7%99%D7%A7-%D7%93%D7%A8%D7%95%D7%A8%D7%99-%D7%94%D7%A7%D7%95%D7%98%D7%91-%D7%94%D7%A6%D7%A4%D7%95%D7%A0%D7%99-%D7%9E%D7%99%D7%96%D7%95%D7%92-%D7%90%D7%95%D7%99%D7%A8-%D7%95%D7%97%D7%A9%D7%9E%D7%9C/100064091231168/" target="_blank" rel="noopener" class="gallery-card-inner fb-link">
+                    <i class="fab fa-facebook fb-big-icon"></i>
+                    <div class="gallery-card-content">
+                        <h3 data-he="עוד תמונות ועדכונים" data-en="More Photos & Updates">עוד תמונות ועדכונים</h3>
+                        <p data-he="עקבו אחרינו בפייסבוק" data-en="Follow us on Facebook">עקבו אחרינו בפייסבוק</p>
+                        <span class="fb-cta" data-he="לעמוד הפייסבוק ←" data-en="Visit Facebook Page →">לעמוד הפייסבוק ←</span>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
@@ -147,68 +305,77 @@
         <div class="section-header">
             <span class="section-tag" data-he="לקוחות מרוצים" data-en="Happy Customers">לקוחות מרוצים</span>
             <h2 data-he="מה אומרים עלינו" data-en="What They Say">מה אומרים עלינו</h2>
-            <div class="rating-badge">
-                <span class="stars">★★★★★</span>
-                <span data-he="9.5/10 מתוך 16 ביקורות מאומתות" data-en="9.5/10 from 16 verified reviews">9.5/10 מתוך 16 ביקורות מאומתות</span>
+            <div class="rating-row">
+                <span class="stars-xl">★★★★★</span>
+                <div class="rating-info">
+                    <strong>9.5/10</strong>
+                    <span data-he="מתוך 16 ביקורות מאומתות" data-en="from 16 verified reviews">מתוך 16 ביקורות מאומתות</span>
+                </div>
             </div>
         </div>
         <div class="testimonials-grid">
             <div class="testimonial-card">
-                <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
-                <p data-he='"לא ממציא תקלות כדי להרוויח יותר — שירות כנה ומקצועי"' data-en='"Does not invent faults to inflate the price — honest and professional"'>"לא ממציא תקלות כדי להרוויח יותר — שירות כנה ומקצועי"</p>
-                <div class="testimonial-author">
+                <div class="t-header">
                     <div class="author-avatar">מ</div>
                     <div>
                         <strong data-he="מאור" data-en="Maor">מאור</strong>
-                        <div class="stars-small">★★★★★</div>
+                        <div class="stars-sm">★★★★★</div>
                     </div>
+                    <span class="t-date">2019</span>
                 </div>
+                <p data-he='"לא ממציא תקלות כדי להרוויח יותר. שירות כנה ומקצועי לחלוטין."' data-en='"Does not invent faults to inflate the price. Completely honest and professional service."'>"לא ממציא תקלות כדי להרוויח יותר. שירות כנה ומקצועי לחלוטין."</p>
             </div>
             <div class="testimonial-card">
-                <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
-                <p data-he='"לא עזב לפני שוידא שהכל עובד — אחריות אמיתית"' data-en='"Did not leave before verifying everything works — true responsibility"'>"לא עזב לפני שוידא שהכל עובד — אחריות אמיתית"</p>
-                <div class="testimonial-author">
+                <div class="t-header">
                     <div class="author-avatar">א</div>
                     <div>
                         <strong data-he="אייל" data-en="Eyal">אייל</strong>
-                        <div class="stars-small">★★★★★</div>
+                        <div class="stars-sm">★★★★★</div>
                     </div>
+                    <span class="t-date">2018</span>
                 </div>
+                <p data-he='"לא עזב לפני שוידא שהכל עובד. אחריות אמיתית ומקצועיות גבוהה."' data-en='"Did not leave before verifying everything works. True responsibility and high professionalism."'>"לא עזב לפני שוידא שהכל עובד. אחריות אמיתית ומקצועיות גבוהה."</p>
             </div>
             <div class="testimonial-card">
-                <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
-                <p data-he='"השירות שלו מצוין, המחיר שגבה היה הוגן — מומלץ בחום"' data-en='"His service is excellent, the price was fair — highly recommended"'>"השירות שלו מצוין, המחיר שגבה היה הוגן — מומלץ בחום"</p>
-                <div class="testimonial-author">
+                <div class="t-header">
                     <div class="author-avatar">נ</div>
                     <div>
                         <strong data-he="נעמה" data-en="Naama">נעמה</strong>
-                        <div class="stars-small">★★★★★</div>
+                        <div class="stars-sm">★★★★★</div>
                     </div>
+                    <span class="t-date">2019</span>
                 </div>
+                <p data-he='"השירות שלו מצוין, המחיר שגבה היה הוגן. בהחלט מומלץ בחום!"' data-en='"His service is excellent, the price was fair. Highly recommended!"'>"השירות שלו מצוין, המחיר שגבה היה הוגן. בהחלט מומלץ בחום!"</p>
             </div>
+        </div>
+        <div class="reviews-link">
+            <a href="https://www.tovtoda.co.il/BusinessPage.aspx?b=3543" target="_blank" rel="noopener">
+                <span data-he="קראו את כל הביקורות ב-TovToda" data-en="Read all reviews on TovToda">קראו את כל הביקורות ב-TovToda</span>
+                <i class="fas fa-arrow-left"></i>
+            </a>
         </div>
     </div>
 </section>
 
 <!-- AREA & HOURS -->
-<section class="section section-alt" id="area">
+<section class="section section-dark" id="area">
     <div class="container">
         <div class="area-hours-grid">
             <div>
                 <div class="section-header section-header-start">
-                    <span class="section-tag" data-he="אזורי פעילות" data-en="Service Area">אזורי פעילות</span>
+                    <span class="section-tag section-tag-light" data-he="אזורי פעילות" data-en="Service Area">אזורי פעילות</span>
                     <h2 data-he="אנחנו מגיעים אליכם" data-en="We Come to You">אנחנו מגיעים אליכם</h2>
                 </div>
                 <ul class="area-list">
-                    <li><i class="fas fa-map-marker-alt"></i><span data-he="אזור המרכז" data-en="Central Region">אזור המרכז</span></li>
-                    <li><i class="fas fa-map-marker-alt"></i><span data-he="אזור השרון" data-en="Sharon Area">אזור השרון</span></li>
-                    <li><i class="fas fa-map-marker-alt"></i><span data-he="אזור השפלה" data-en="Shephelah Area">אזור השפלה</span></li>
-                    <li><i class="fas fa-map-marker-alt"></i><span data-he="אזור מודיעין והסביבה" data-en="Modi'in & Surroundings">אזור מודיעין והסביבה</span></li>
+                    <li><i class="fas fa-location-dot"></i><span data-he="אזור המרכז" data-en="Central Region">אזור המרכז</span></li>
+                    <li><i class="fas fa-location-dot"></i><span data-he="אזור השרון" data-en="Sharon Area">אזור השרון</span></li>
+                    <li><i class="fas fa-location-dot"></i><span data-he="אזור השפלה" data-en="Shephelah Area">אזור השפלה</span></li>
+                    <li><i class="fas fa-location-dot"></i><span data-he="אזור מודיעין והסביבה" data-en="Modi'in & Surroundings">אזור מודיעין והסביבה</span></li>
                 </ul>
             </div>
             <div>
                 <div class="section-header section-header-start">
-                    <span class="section-tag" data-he="שעות פעילות" data-en="Business Hours">שעות פעילות</span>
+                    <span class="section-tag section-tag-light" data-he="שעות פעילות" data-en="Business Hours">שעות פעילות</span>
                     <h2 data-he="מתי אנחנו זמינים" data-en="When We're Available">מתי אנחנו זמינים</h2>
                 </div>
                 <div class="hours-table">
@@ -220,7 +387,7 @@
                         <span data-he="שישי" data-en="Friday">שישי</span>
                         <span class="hours-time">08:00 – 14:00</span>
                     </div>
-                    <div class="hours-row">
+                    <div class="hours-row hours-row-special">
                         <span data-he="מוצאי שבת" data-en="Saturday Night">מוצאי שבת</span>
                         <span class="hours-time">18:00 – 21:00</span>
                     </div>
@@ -235,21 +402,27 @@
     <div class="container">
         <div class="section-header">
             <span class="section-tag contact-tag" data-he="יצירת קשר" data-en="Contact Us">יצירת קשר</span>
-            <h2 class="contact-title" data-he="דברו איתנו" data-en="Get In Touch">דברו איתנו</h2>
+            <h2 class="contact-h2" data-he="דברו איתנו עכשיו" data-en="Get In Touch Now">דברו איתנו עכשיו</h2>
+            <p class="section-desc contact-desc" data-he="זמינים לכם 6 ימים בשבוע — אל תהססו להתקשר" data-en="Available 6 days a week — don't hesitate to call">זמינים לכם 6 ימים בשבוע — אל תהססו להתקשר</p>
         </div>
         <div class="contact-grid">
-            <a href="tel:0732721573" class="contact-card contact-card-primary">
-                <i class="fas fa-phone"></i>
-                <h3 data-he="התקשרו עכשיו" data-en="Call Now">התקשרו עכשיו</h3>
+            <a href="tel:0732721573" class="contact-card contact-primary">
+                <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                <h3 data-he="קו ראשי" data-en="Main Line">קו ראשי</h3>
                 <span class="ltr">073-272-1573</span>
             </a>
+            <a href="tel:0549506888" class="contact-card contact-primary">
+                <div class="contact-icon"><i class="fas fa-mobile-alt"></i></div>
+                <h3 data-he="נייד" data-en="Mobile">נייד</h3>
+                <span class="ltr">054-950-6888</span>
+            </a>
             <div class="contact-card">
-                <i class="fas fa-map-marker-alt"></i>
+                <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                 <h3 data-he="כתובת" data-en="Address">כתובת</h3>
                 <span data-he="הדר 32, מושב קדרון" data-en="Hadar 32, Moshav Kadron">הדר 32, מושב קדרון</span>
             </div>
             <a href="https://www.facebook.com/people/%D7%90%D7%99%D7%A6%D7%99%D7%A7-%D7%93%D7%A8%D7%95%D7%A8%D7%99-%D7%94%D7%A7%D7%95%D7%98%D7%91-%D7%94%D7%A6%D7%A4%D7%95%D7%A0%D7%99-%D7%9E%D7%99%D7%96%D7%95%D7%92-%D7%90%D7%95%D7%99%D7%A8-%D7%95%D7%97%D7%A9%D7%9E%D7%9C/100064091231168/" target="_blank" rel="noopener" class="contact-card">
-                <i class="fab fa-facebook"></i>
+                <div class="contact-icon"><i class="fab fa-facebook"></i></div>
                 <h3>Facebook</h3>
                 <span data-he="עמוד הפייסבוק שלנו" data-en="Our Facebook Page">עמוד הפייסבוק שלנו</span>
             </a>
@@ -260,12 +433,18 @@
 <!-- FOOTER -->
 <footer class="footer">
     <div class="container">
-        <div class="footer-content">
-            <div class="footer-logo">
+        <div class="footer-top">
+            <div class="footer-brand">
                 <i class="fas fa-snowflake"></i>
-                <span data-he="הקוטב הצפוני" data-en="The North Pole">הקוטב הצפוני</span>
+                <div>
+                    <span class="footer-name" data-he="הקוטב הצפוני" data-en="The North Pole">הקוטב הצפוני</span>
+                    <span class="footer-tagline" data-he="מיזוג אוויר וחשמל" data-en="AC & Electrical Services">מיזוג אוויר וחשמל</span>
+                </div>
             </div>
-            <p data-he="© 2025 הקוטב הצפוני — מיזוג אוויר וחשמל | איציק דרורי" data-en="© 2025 The North Pole — AC & Electrical Services | Itzik Drori">© 2025 הקוטב הצפוני — מיזוג אוויר וחשמל | איציק דרורי</p>
+            <a href="tel:0732721573" class="footer-phone ltr">073-272-1573</a>
+        </div>
+        <div class="footer-bottom">
+            <p data-he="© 2025 הקוטב הצפוני | כל הזכויות שמורות" data-en="© 2025 The North Pole | All rights reserved">© 2025 הקוטב הצפוני | כל הזכויות שמורות</p>
             <p class="footer-credit">Designed by Netgenius</p>
         </div>
     </div>
