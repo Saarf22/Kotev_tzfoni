@@ -793,9 +793,11 @@ ul { list-style: none; }
     height: 3px;
     background: linear-gradient(90deg, var(--ice), var(--blue));
     transform: scaleX(0);
-    transform-origin: inset-inline-start;
+    transform-origin: right;
     transition: transform 0.35s ease;
 }
+
+html[dir="ltr"] .why-card::after { transform-origin: left; }
 
 .why-card:hover {
     transform: translateY(-8px);
@@ -943,6 +945,7 @@ ul { list-style: none; }
     overflow: hidden;
     padding: 0 !important;
     height: 260px;
+    background: #05111f;
 }
 
 .gallery-card-large.gallery-card-img {
@@ -952,10 +955,11 @@ ul { list-style: none; }
 .gallery-real-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
     display: block;
     transition: transform 0.5s ease;
+    padding: 12px;
 }
 
 .gallery-card-img:hover .gallery-real-img {
@@ -1351,6 +1355,28 @@ html[dir="ltr"] .area-list li:hover { transform: translateX(4px); }
     border-color: var(--ice);
 }
 
+.contact-whatsapp {
+    border-color: rgba(37,211,102,0.2);
+    background: rgba(37,211,102,0.06);
+}
+
+.contact-whatsapp:hover {
+    background: rgba(37,211,102,0.14);
+    border-color: #25d366;
+}
+
+.contact-whatsapp .contact-icon {
+    background: rgba(37,211,102,0.1);
+    border-color: rgba(37,211,102,0.25);
+    color: #25d366;
+}
+
+.contact-whatsapp:hover .contact-icon {
+    background: #25d366;
+    color: var(--navy);
+    box-shadow: 0 4px 16px rgba(37,211,102,0.4);
+}
+
 /* ============================================================
    FOOTER
 ============================================================ */
@@ -1442,6 +1468,38 @@ html[dir="ltr"] .area-list li:hover { transform: translateX(4px); }
 }
 
 /* ============================================================
+   HAMBURGER / MOBILE NAV
+============================================================ */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: transparent;
+    border: 1.5px solid rgba(0,180,216,0.3);
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 8px 10px;
+    transition: var(--t);
+    flex-shrink: 0;
+}
+
+.nav-toggle:hover { border-color: var(--ice); background: rgba(0,180,216,0.08); }
+
+.nav-toggle span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--ice);
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ============================================================
    RESPONSIVE
 ============================================================ */
 @media (max-width: 1024px) {
@@ -1460,6 +1518,26 @@ html[dir="ltr"] .area-list li:hover { transform: translateX(4px); }
 @media (max-width: 900px) {
     .area-hours-grid { grid-template-columns: 1fr; gap: 48px; }
     .nav-links { display: none; }
+    .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 66px;
+        inset-inline-start: 0;
+        right: 0;
+        background: rgba(6,15,30,0.97);
+        padding: 20px 28px;
+        gap: 20px;
+        border-bottom: 1px solid rgba(0,180,216,0.15);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        z-index: 800;
+    }
+    .nav-links.open a {
+        font-size: 16px;
+        color: rgba(255,255,255,0.8);
+    }
+    .nav-toggle { display: flex; }
 }
 
 @media (max-width: 768px) {
