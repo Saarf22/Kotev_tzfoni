@@ -1266,6 +1266,13 @@ html[dir="ltr"] .why-card::after { transform-origin: left; }
     color: var(--text-muted);
 }
 
+.t-service {
+    font-size: 12px;
+    color: var(--ice);
+    opacity: 0.7;
+    margin-bottom: 6px;
+}
+
 .author-avatar {
     width: 42px;
     height: 42px;
