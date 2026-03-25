@@ -210,6 +210,56 @@ function initVideoCard() {
 }
 
 /* ============================================================
+   GALLERY LIGHTBOX
+============================================================ */
+function initGalleryLightbox() {
+    // Build lightbox DOM
+    const lb = document.createElement('div');
+    lb.id = 'lightbox';
+    lb.innerHTML = `
+        <div class="lb-backdrop"></div>
+        <button class="lb-close" aria-label="סגור">✕</button>
+        <button class="lb-prev" aria-label="קודם">&#8250;</button>
+        <img class="lb-img" src="" alt="">
+        <button class="lb-next" aria-label="הבא">&#8249;</button>
+    `;
+    document.body.appendChild(lb);
+
+    const cards = Array.from(document.querySelectorAll('.gallery-card-img'));
+    let current = 0;
+
+    function show(idx) {
+        current = (idx + cards.length) % cards.length;
+        const img = cards[current].querySelector('img');
+        lb.querySelector('.lb-img').src = img ? img.src : '';
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+        lb.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    cards.forEach((card, i) => {
+        card.style.cursor = 'zoom-in';
+        card.addEventListener('click', () => show(i));
+    });
+
+    lb.querySelector('.lb-close').addEventListener('click', close);
+    lb.querySelector('.lb-backdrop').addEventListener('click', close);
+    lb.querySelector('.lb-prev').addEventListener('click', e => { e.stopPropagation(); show(current + 1); });
+    lb.querySelector('.lb-next').addEventListener('click', e => { e.stopPropagation(); show(current - 1); });
+
+    document.addEventListener('keydown', e => {
+        if (!lb.classList.contains('open')) return;
+        if (e.key === 'Escape') close();
+        if (e.key === 'ArrowLeft') show(current - 1);
+        if (e.key === 'ArrowRight') show(current + 1);
+    });
+}
+
+/* ============================================================
    INIT
 ============================================================ */
 document.addEventListener('DOMContentLoaded', () => {
@@ -222,4 +272,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initSmoothScroll();
     initVideoCard();
     initNavToggle();
+    initGalleryLightbox();
 });
