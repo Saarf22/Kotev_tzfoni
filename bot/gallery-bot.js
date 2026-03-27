@@ -45,8 +45,20 @@ function tgApi(method, body) {
     });
 }
 
-function send(chatId, text, reply_markup) {
-    return tgApi('sendMessage', { chat_id: chatId, text, parse_mode: 'HTML', reply_markup });
+// Persistent bottom keyboard always shown
+const persistentKeyboard = {
+    keyboard: [[{ text: '🏠 תפריט ראשי' }]],
+    resize_keyboard: true,
+    persistent: true
+};
+
+function send(chatId, text, inline_markup) {
+    return tgApi('sendMessage', {
+        chat_id: chatId,
+        text,
+        parse_mode: 'HTML',
+        reply_markup: inline_markup || persistentKeyboard
+    });
 }
 
 function editMsg(chatId, msgId, text, reply_markup) {
@@ -167,7 +179,7 @@ async function handleMessage(msg) {
         return send(chatId, '❓ קודם התחל פרויקט חדש:', mainMenu);
     }
 
-    // /start or any text
+    // /start or menu button or any text
     return send(chatId,
         '👋 ברוך הבא לבוט גלריה של <b>הקוטב הצפוני</b>!\n\nבחר פעולה:',
         mainMenu
