@@ -140,50 +140,57 @@
     </div>
 </section>
 
-<!-- GALLERY / MEDIA — moved right below hero -->
+<!-- GALLERY / MEDIA — collage below hero -->
 <section class="section section-dark" id="gallery">
     <div class="container">
         <div class="section-header">
             <span class="section-tag section-tag-light" data-he="הפרויקטים שלנו" data-en="Our Work">הפרויקטים שלנו</span>
-            <h2 data-he="תמונות ומדיה" data-en="Photos & Media">תמונות ומדיה</h2>
-            <p class="section-desc section-desc-light" data-he="הצצה לעבודה שלנו בשטח" data-en="A glimpse of our work in the field">הצצה לעבודה שלנו בשטח</p>
+            <h2 data-he="עבודות בשטח" data-en="Our Work">עבודות בשטח</h2>
+            <p class="section-desc section-desc-light" data-he="לחצו על תמונה לצפייה בפרויקט המלא" data-en="Click any photo to view the full project">לחצו על תמונה לצפייה בפרויקט המלא</p>
         </div>
-        <div class="gallery-grid" id="dynamicGallery">
-            <div class="gallery-card gallery-card-img gallery-card-large">
-                <img src="assets/img/hakotev-1.jpg" alt="עבודת מזגנים - הקוטב הצפוני" class="gallery-real-img" loading="lazy">
-                <div class="gallery-img-overlay"><h3 data-he="עבודה בשטח" data-en="Field Work">עבודה בשטח</h3></div>
+
+        <!-- Collage grid — all photos from all projects -->
+        <div class="collage-grid" id="collageGrid">
+            <!-- Static fallback — shown until JS loads gallery.json -->
+            <div class="collage-item collage-tall">
+                <img src="assets/img/hakotev-1.jpg" alt="עבודת מזגנים" loading="lazy">
+                <div class="collage-overlay"><span>עבודה בשטח</span></div>
             </div>
-            <div class="gallery-card gallery-card-img">
-                <img src="assets/img/hakotev-4.jpg" alt="איציק דרורי - טכנאי מזגנים" class="gallery-real-img" loading="lazy">
-                <div class="gallery-img-overlay"><h3 data-he="איציק דרורי" data-en="Itzik Drori">איציק דרורי</h3></div>
+            <div class="collage-item">
+                <img src="assets/img/hakotev-2.jpg" alt="התקנת מזגן" loading="lazy">
+                <div class="collage-overlay"><span>התקנה מקצועית</span></div>
             </div>
-            <div class="gallery-card gallery-card-img">
-                <img src="assets/img/hakotev-2.jpg" alt="התקנת מזגן" class="gallery-real-img" loading="lazy">
-                <div class="gallery-img-overlay"><h3 data-he="התקנה מקצועית" data-en="Professional Installation">התקנה מקצועית</h3></div>
+            <div class="collage-item">
+                <img src="assets/img/hakotev-3.jpg" alt="תיקון מזגן" loading="lazy">
+                <div class="collage-overlay"><span>תיקון ואבחון</span></div>
             </div>
-            <div class="gallery-card gallery-card-img gallery-card-large">
-                <img src="assets/img/hakotev-3.jpg" alt="תיקון מזגן" class="gallery-real-img" loading="lazy">
-                <div class="gallery-img-overlay"><h3 data-he="תיקון ואבחון" data-en="Repair & Diagnosis">תיקון ואבחון</h3></div>
+            <div class="collage-item collage-wide">
+                <img src="assets/img/hakotev-4.jpg" alt="איציק דרורי" loading="lazy">
+                <div class="collage-overlay"><span>איציק דרורי</span></div>
             </div>
-            <a href="https://www.facebook.com/people/%D7%90%D7%99%D7%A6%D7%99%D7%A7-%D7%93%D7%A8%D7%95%D7%A8%D7%99-%D7%94%D7%A7%D7%95%D7%98%D7%91-%D7%94%D7%A6%D7%A4%D7%95%D7%A0%D7%99-%D7%9E%D7%99%D7%96%D7%95%D7%92-%D7%90%D7%95%D7%99%D7%A8-%D7%95%D7%97%D7%A9%D7%9E%D7%9C/100064091231168/" target="_blank" rel="noopener" class="gallery-card gallery-fb-card">
-                <div class="gallery-card-inner gallery-card-inner-full fb-link">
-                    <i class="fab fa-facebook fb-big-icon"></i>
-                    <div class="gallery-card-content">
-                        <h3 data-he="עוד תמונות וסרטונים" data-en="More Photos & Videos">עוד תמונות וסרטונים</h3>
-                        <p data-he="עקבו אחרינו בפייסבוק" data-en="Follow us on Facebook">עקבו אחרינו בפייסבוק</p>
-                        <span class="fb-cta" data-he="לעמוד הפייסבוק ←" data-en="Visit Facebook Page →">לעמוד הפייסבוק ←</span>
-                    </div>
-                </div>
+        </div>
+
+        <div style="text-align:center;margin-top:32px">
+            <a href="https://www.facebook.com/people/%D7%90%D7%99%D7%A6%D7%99%D7%A7-%D7%93%D7%A8%D7%95%D7%A8%D7%99-%D7%94%D7%A7%D7%95%D7%98%D7%91-%D7%94%D7%A6%D7%A4%D7%95%D7%A0%D7%99-%D7%9E%D7%99%D7%96%D7%95%D7%92-%D7%90%D7%95%D7%99%D7%A8-%D7%95%D7%97%D7%A9%D7%9E%D7%9C/100064091231168/" target="_blank" rel="noopener" class="btn-secondary">
+                <i class="fab fa-facebook"></i>
+                <span data-he="עוד תמונות בפייסבוק" data-en="More on Facebook">עוד תמונות בפייסבוק</span>
             </a>
         </div>
-        <div id="projectModal" class="project-modal" style="display:none">
-            <div class="project-modal-backdrop" onclick="closeProjectModal()"></div>
-            <div class="project-modal-inner">
-                <button class="project-modal-close" onclick="closeProjectModal()">✕</button>
-                <h3 id="projectModalTitle"></h3>
-                <div class="project-modal-grid" id="projectModalGrid"></div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="collageLightbox" class="collage-lightbox" style="display:none">
+        <div class="collage-lb-backdrop" onclick="closeLightbox()"></div>
+        <button class="collage-lb-close" onclick="closeLightbox()">✕</button>
+        <button class="collage-lb-prev" onclick="lbNav(-1)">&#8250;</button>
+        <div class="collage-lb-content">
+            <img id="collageLbImg" src="" alt="">
+            <div class="collage-lb-caption">
+                <span id="collageLbProject"></span>
+                <span id="collageLbCount"></span>
             </div>
         </div>
+        <button class="collage-lb-next" onclick="lbNav(1)">&#8249;</button>
     </div>
 </section>
 
@@ -585,76 +592,83 @@
 
 <script src="script.js"></script>
 <script>
-// ── Dynamic Gallery from gallery.json ──────────────────────────────────────
-(async function loadGallery() {
+// ── Collage Gallery ─────────────────────────────────────────────────────────
+let lbPhotos = []; // all photos flat array: {src, project}
+let lbIndex  = 0;
+
+(async function loadCollage() {
     try {
         const res = await fetch('assets/img/projects/gallery.json?v=' + Date.now());
         const projects = await res.json();
-        if (!projects || !projects.length) return; // keep fallback
+        if (!projects || !projects.length) return;
 
-        const container = document.getElementById('dynamicGallery');
-        const lang = document.documentElement.lang || 'he';
+        // Flatten all photos from all projects into one array
+        // First photo of first (newest) project gets featured large slot
+        const allPhotos = [];
+        projects.forEach(project => {
+            project.photos.forEach(p => {
+                allPhotos.push({ src: 'assets/img/' + p, project: project.name, date: project.date });
+            });
+        });
 
+        if (!allPhotos.length) return;
+
+        // Build collage — first photo large, rest fill in varied sizes
+        const container = document.getElementById('collageGrid');
         let html = '';
-        projects.forEach((project, i) => {
-            const isLarge = i === 0; // newest project gets large card
-            const coverSrc = 'assets/img/' + project.cover;
-            const photoCount = project.photos.length;
-            const dateStr = project.date || '';
+        allPhotos.forEach((photo, i) => {
+            // Assign varied sizes for visual interest: 0=tall, 3=wide, 7=tall, 10=wide...
+            let cls = '';
+            if (i === 0) cls = 'collage-tall';
+            else if (i % 7 === 3) cls = 'collage-wide';
+            else if (i % 7 === 6) cls = 'collage-tall';
 
-            html += `
-            <div class="gallery-card gallery-card-img ${isLarge ? 'gallery-card-large' : ''}"
-                 style="cursor:pointer"
-                 onclick="openProjectModal('${project.name.replace(/'/g,"\\'")}', ${JSON.stringify(project.photos)})">
-                <img src="${coverSrc}" alt="${project.name} - הקוטב הצפוני" class="gallery-real-img" loading="lazy">
-                <div class="gallery-img-overlay">
-                    <h3>${project.name}</h3>
-                    <span style="font-size:12px;opacity:0.7">${photoCount} תמונות${dateStr ? ' · ' + dateStr : ''}</span>
-                </div>
+            html += `<div class="collage-item ${cls}" onclick="openLightbox(${i})">
+                <img src="${photo.src}" alt="${photo.project} - הקוטב הצפוני" loading="lazy">
+                <div class="collage-overlay"><span>${photo.project}</span></div>
             </div>`;
         });
 
-        // Keep Facebook card at the end
-        html += `
-        <a href="https://www.facebook.com/people/%D7%90%D7%99%D7%A6%D7%99%D7%A7-%D7%93%D7%A8%D7%95%D7%A8%D7%99-%D7%94%D7%A7%D7%95%D7%98%D7%91-%D7%94%D7%A6%D7%A4%D7%95%D7%A0%D7%99-%D7%9E%D7%99%D7%96%D7%95%D7%92-%D7%90%D7%95%D7%99%D7%A8-%D7%95%D7%97%D7%A9%D7%9E%D7%9C/100064091231168/" target="_blank" rel="noopener" class="gallery-card gallery-fb-card">
-            <div class="gallery-card-inner gallery-card-inner-full fb-link">
-                <i class="fab fa-facebook fb-big-icon"></i>
-                <div class="gallery-card-content">
-                    <h3>עוד תמונות וסרטונים</h3>
-                    <p>עקבו אחרינו בפייסבוק</p>
-                    <span class="fb-cta">לעמוד הפייסבוק ←</span>
-                </div>
-            </div>
-        </a>`;
-
+        lbPhotos = allPhotos;
         container.innerHTML = html;
-        // Re-init lightbox for new images
-        if (typeof initGalleryLightbox === 'function') initGalleryLightbox();
 
     } catch(e) {
-        // Silently keep fallback static images
+        // Keep static fallback
     }
 })();
 
-// ── Project Modal (show all photos in a project) ───────────────────────────
-function openProjectModal(name, photos) {
-    document.getElementById('projectModalTitle').textContent = name;
-    const grid = document.getElementById('projectModalGrid');
-    grid.innerHTML = photos.map(p =>
-        `<img src="assets/img/${p}" alt="${name}" loading="lazy" onclick="event.stopPropagation()">`
-    ).join('');
-    const modal = document.getElementById('projectModal');
-    modal.style.display = 'flex';
+// ── Lightbox ────────────────────────────────────────────────────────────────
+function openLightbox(index) {
+    lbIndex = index;
+    updateLightbox();
+    document.getElementById('collageLightbox').style.display = 'flex';
     document.body.style.overflow = 'hidden';
 }
 
-function closeProjectModal() {
-    document.getElementById('projectModal').style.display = 'none';
+function closeLightbox() {
+    document.getElementById('collageLightbox').style.display = 'none';
     document.body.style.overflow = '';
 }
 
+function lbNav(dir) {
+    lbIndex = (lbIndex + dir + lbPhotos.length) % lbPhotos.length;
+    updateLightbox();
+}
+
+function updateLightbox() {
+    const photo = lbPhotos[lbIndex];
+    if (!photo) return;
+    document.getElementById('collageLbImg').src = photo.src;
+    document.getElementById('collageLbProject').textContent = photo.project;
+    document.getElementById('collageLbCount').textContent = (lbIndex + 1) + ' / ' + lbPhotos.length;
+}
+
 document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeProjectModal();
+    const lb = document.getElementById('collageLightbox');
+    if (!lb || lb.style.display === 'none') return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') lbNav(-1);
+    if (e.key === 'ArrowRight') lbNav(1);
 });
 </script>
 </body>
