@@ -1775,3 +1775,77 @@ html[dir="ltr"] .area-list li:hover { transform: translateX(4px); }
     .hero-title-main { letter-spacing: -1px; }
     .contact-grid { grid-template-columns: 1fr 1fr; }
 }
+
+/* ============================================================
+   PROJECT MODAL
+============================================================ */
+.project-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.92);
+}
+
+.project-modal-inner {
+    position: relative;
+    z-index: 1;
+    background: #0a2540;
+    border: 1px solid rgba(0,180,216,0.2);
+    border-radius: 20px;
+    padding: 32px;
+    max-width: 90vw;
+    max-height: 85vh;
+    overflow-y: auto;
+    width: 760px;
+}
+
+.project-modal-close {
+    position: absolute;
+    top: 16px;
+    inset-inline-end: 16px;
+    background: rgba(255,255,255,0.1);
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-modal-close:hover { background: rgba(0,180,216,0.4); }
+
+.project-modal-inner h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 20px;
+}
+
+.project-modal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+}
+
+.project-modal-grid img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    aspect-ratio: 1;
+    cursor: zoom-in;
+    transition: transform 0.2s;
+}
+
+.project-modal-grid img:hover { transform: scale(1.03); }

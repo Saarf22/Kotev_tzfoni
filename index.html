@@ -301,36 +301,26 @@
             <h2 data-he="תמונות ומדיה" data-en="Photos & Media">תמונות ומדיה</h2>
             <p class="section-desc section-desc-light" data-he="הצצה לעבודה שלנו בשטח" data-en="A glimpse of our work in the field">הצצה לעבודה שלנו בשטח</p>
         </div>
-        <div class="gallery-grid">
 
+        <!-- Dynamic gallery from gallery.json -->
+        <div class="gallery-grid" id="dynamicGallery">
+            <!-- Fallback static images shown until JS loads -->
             <div class="gallery-card gallery-card-img gallery-card-large">
                 <img src="assets/img/hakotev-1.jpg" alt="עבודת מזגנים - הקוטב הצפוני" class="gallery-real-img" loading="lazy">
-                <div class="gallery-img-overlay">
-                    <h3 data-he="עבודה בשטח" data-en="Field Work">עבודה בשטח</h3>
-                </div>
+                <div class="gallery-img-overlay"><h3 data-he="עבודה בשטח" data-en="Field Work">עבודה בשטח</h3></div>
             </div>
-
             <div class="gallery-card gallery-card-img">
                 <img src="assets/img/hakotev-4.jpg" alt="איציק דרורי - טכנאי מזגנים" class="gallery-real-img" loading="lazy">
-                <div class="gallery-img-overlay">
-                    <h3 data-he="איציק דרורי" data-en="Itzik Drori">איציק דרורי</h3>
-                </div>
+                <div class="gallery-img-overlay"><h3 data-he="איציק דרורי" data-en="Itzik Drori">איציק דרורי</h3></div>
             </div>
-
             <div class="gallery-card gallery-card-img">
                 <img src="assets/img/hakotev-2.jpg" alt="התקנת מזגן" class="gallery-real-img" loading="lazy">
-                <div class="gallery-img-overlay">
-                    <h3 data-he="התקנה מקצועית" data-en="Professional Installation">התקנה מקצועית</h3>
-                </div>
+                <div class="gallery-img-overlay"><h3 data-he="התקנה מקצועית" data-en="Professional Installation">התקנה מקצועית</h3></div>
             </div>
-
             <div class="gallery-card gallery-card-img gallery-card-large">
                 <img src="assets/img/hakotev-3.jpg" alt="תיקון מזגן" class="gallery-real-img" loading="lazy">
-                <div class="gallery-img-overlay">
-                    <h3 data-he="תיקון ואבחון" data-en="Repair & Diagnosis">תיקון ואבחון</h3>
-                </div>
+                <div class="gallery-img-overlay"><h3 data-he="תיקון ואבחון" data-en="Repair & Diagnosis">תיקון ואבחון</h3></div>
             </div>
-
             <a href="https://www.facebook.com/people/%D7%90%D7%99%D7%A6%D7%99%D7%A7-%D7%93%D7%A8%D7%95%D7%A8%D7%99-%D7%94%D7%A7%D7%95%D7%98%D7%91-%D7%94%D7%A6%D7%A4%D7%95%D7%A0%D7%99-%D7%9E%D7%99%D7%96%D7%95%D7%92-%D7%90%D7%95%D7%99%D7%A8-%D7%95%D7%97%D7%A9%D7%9E%D7%9C/100064091231168/" target="_blank" rel="noopener" class="gallery-card gallery-fb-card">
                 <div class="gallery-card-inner gallery-card-inner-full fb-link">
                     <i class="fab fa-facebook fb-big-icon"></i>
@@ -341,7 +331,16 @@
                     </div>
                 </div>
             </a>
+        </div>
 
+        <!-- Project lightbox modal -->
+        <div id="projectModal" class="project-modal" style="display:none">
+            <div class="project-modal-backdrop" onclick="closeProjectModal()"></div>
+            <div class="project-modal-inner">
+                <button class="project-modal-close" onclick="closeProjectModal()">✕</button>
+                <h3 id="projectModalTitle"></h3>
+                <div class="project-modal-grid" id="projectModalGrid"></div>
+            </div>
         </div>
     </div>
 </section>
@@ -590,5 +589,78 @@
 </footer>
 
 <script src="script.js"></script>
+<script>
+// ── Dynamic Gallery from gallery.json ──────────────────────────────────────
+(async function loadGallery() {
+    try {
+        const res = await fetch('assets/img/projects/gallery.json?v=' + Date.now());
+        const projects = await res.json();
+        if (!projects || !projects.length) return; // keep fallback
+
+        const container = document.getElementById('dynamicGallery');
+        const lang = document.documentElement.lang || 'he';
+
+        let html = '';
+        projects.forEach((project, i) => {
+            const isLarge = i === 0; // newest project gets large card
+            const coverSrc = 'assets/img/' + project.cover;
+            const photoCount = project.photos.length;
+            const dateStr = project.date || '';
+
+            html += `
+            <div class="gallery-card gallery-card-img ${isLarge ? 'gallery-card-large' : ''}"
+                 style="cursor:pointer"
+                 onclick="openProjectModal('${project.name.replace(/'/g,"\\'")}', ${JSON.stringify(project.photos)})">
+                <img src="${coverSrc}" alt="${project.name} - הקוטב הצפוני" class="gallery-real-img" loading="lazy">
+                <div class="gallery-img-overlay">
+                    <h3>${project.name}</h3>
+                    <span style="font-size:12px;opacity:0.7">${photoCount} תמונות${dateStr ? ' · ' + dateStr : ''}</span>
+                </div>
+            </div>`;
+        });
+
+        // Keep Facebook card at the end
+        html += `
+        <a href="https://www.facebook.com/people/%D7%90%D7%99%D7%A6%D7%99%D7%A7-%D7%93%D7%A8%D7%95%D7%A8%D7%99-%D7%94%D7%A7%D7%95%D7%98%D7%91-%D7%94%D7%A6%D7%A4%D7%95%D7%A0%D7%99-%D7%9E%D7%99%D7%96%D7%95%D7%92-%D7%90%D7%95%D7%99%D7%A8-%D7%95%D7%97%D7%A9%D7%9E%D7%9C/100064091231168/" target="_blank" rel="noopener" class="gallery-card gallery-fb-card">
+            <div class="gallery-card-inner gallery-card-inner-full fb-link">
+                <i class="fab fa-facebook fb-big-icon"></i>
+                <div class="gallery-card-content">
+                    <h3>עוד תמונות וסרטונים</h3>
+                    <p>עקבו אחרינו בפייסבוק</p>
+                    <span class="fb-cta">לעמוד הפייסבוק ←</span>
+                </div>
+            </div>
+        </a>`;
+
+        container.innerHTML = html;
+        // Re-init lightbox for new images
+        if (typeof initGalleryLightbox === 'function') initGalleryLightbox();
+
+    } catch(e) {
+        // Silently keep fallback static images
+    }
+})();
+
+// ── Project Modal (show all photos in a project) ───────────────────────────
+function openProjectModal(name, photos) {
+    document.getElementById('projectModalTitle').textContent = name;
+    const grid = document.getElementById('projectModalGrid');
+    grid.innerHTML = photos.map(p =>
+        `<img src="assets/img/${p}" alt="${name}" loading="lazy" onclick="event.stopPropagation()">`
+    ).join('');
+    const modal = document.getElementById('projectModal');
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeProjectModal() {
+    document.getElementById('projectModal').style.display = 'none';
+    document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeProjectModal();
+});
+</script>
 </body>
 </html>
