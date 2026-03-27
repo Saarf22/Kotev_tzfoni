@@ -140,57 +140,60 @@
     </div>
 </section>
 
-<!-- GALLERY / MEDIA — collage below hero -->
+<!-- GALLERY — last 4 projects below hero -->
 <section class="section section-dark" id="gallery">
     <div class="container">
         <div class="section-header">
             <span class="section-tag section-tag-light" data-he="הפרויקטים שלנו" data-en="Our Work">הפרויקטים שלנו</span>
-            <h2 data-he="עבודות בשטח" data-en="Our Work">עבודות בשטח</h2>
-            <p class="section-desc section-desc-light" data-he="לחצו על תמונה לצפייה בפרויקט המלא" data-en="Click any photo to view the full project">לחצו על תמונה לצפייה בפרויקט המלא</p>
+            <h2 data-he="עבודות אחרונות" data-en="Recent Projects">עבודות אחרונות</h2>
+            <p class="section-desc section-desc-light" data-he="לחצו על פרויקט לצפייה בכל התמונות" data-en="Click a project to view all photos">לחצו על פרויקט לצפייה בכל התמונות</p>
         </div>
 
-        <!-- Collage grid — all photos from all projects -->
-        <div class="collage-grid" id="collageGrid">
-            <!-- Static fallback — shown until JS loads gallery.json -->
-            <div class="collage-item collage-tall">
-                <img src="assets/img/hakotev-1.jpg" alt="עבודת מזגנים" loading="lazy">
-                <div class="collage-overlay"><span>עבודה בשטח</span></div>
-            </div>
-            <div class="collage-item">
-                <img src="assets/img/hakotev-2.jpg" alt="התקנת מזגן" loading="lazy">
-                <div class="collage-overlay"><span>התקנה מקצועית</span></div>
-            </div>
-            <div class="collage-item">
-                <img src="assets/img/hakotev-3.jpg" alt="תיקון מזגן" loading="lazy">
-                <div class="collage-overlay"><span>תיקון ואבחון</span></div>
-            </div>
-            <div class="collage-item collage-wide">
-                <img src="assets/img/hakotev-4.jpg" alt="איציק דרורי" loading="lazy">
-                <div class="collage-overlay"><span>איציק דרורי</span></div>
-            </div>
+        <!-- Last 4 projects as cards -->
+        <div class="projects-grid" id="projectsGrid">
+            <!-- Static fallback -->
+            <a href="index.html#gallery" class="project-card">
+                <div class="project-card-img">
+                    <img src="assets/img/hakotev-1.jpg" alt="עבודה בשטח" loading="lazy">
+                    <div class="project-card-count"><i class="fas fa-images"></i> 4</div>
+                </div>
+                <div class="project-card-info">
+                    <h3>עבודה בשטח</h3>
+                    <span class="project-card-date"></span>
+                </div>
+            </a>
+            <a href="index.html#gallery" class="project-card">
+                <div class="project-card-img">
+                    <img src="assets/img/hakotev-2.jpg" alt="התקנה מקצועית" loading="lazy">
+                </div>
+                <div class="project-card-info">
+                    <h3>התקנה מקצועית</h3>
+                </div>
+            </a>
+            <a href="index.html#gallery" class="project-card">
+                <div class="project-card-img">
+                    <img src="assets/img/hakotev-3.jpg" alt="תיקון ואבחון" loading="lazy">
+                </div>
+                <div class="project-card-info">
+                    <h3>תיקון ואבחון</h3>
+                </div>
+            </a>
+            <a href="index.html#gallery" class="project-card">
+                <div class="project-card-img">
+                    <img src="assets/img/hakotev-4.jpg" alt="איציק דרורי" loading="lazy">
+                </div>
+                <div class="project-card-info">
+                    <h3>איציק דרורי</h3>
+                </div>
+            </a>
         </div>
 
-        <div style="text-align:center;margin-top:32px">
+        <div style="text-align:center;margin-top:36px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
             <a href="https://www.facebook.com/people/%D7%90%D7%99%D7%A6%D7%99%D7%A7-%D7%93%D7%A8%D7%95%D7%A8%D7%99-%D7%94%D7%A7%D7%95%D7%98%D7%91-%D7%94%D7%A6%D7%A4%D7%95%D7%A0%D7%99-%D7%9E%D7%99%D7%96%D7%95%D7%92-%D7%90%D7%95%D7%99%D7%A8-%D7%95%D7%97%D7%A9%D7%9E%D7%9C/100064091231168/" target="_blank" rel="noopener" class="btn-secondary">
                 <i class="fab fa-facebook"></i>
                 <span data-he="עוד תמונות בפייסבוק" data-en="More on Facebook">עוד תמונות בפייסבוק</span>
             </a>
         </div>
-    </div>
-
-    <!-- Lightbox -->
-    <div id="collageLightbox" class="collage-lightbox" style="display:none">
-        <div class="collage-lb-backdrop" onclick="closeLightbox()"></div>
-        <button class="collage-lb-close" onclick="closeLightbox()">✕</button>
-        <button class="collage-lb-prev" onclick="lbNav(-1)">&#8250;</button>
-        <div class="collage-lb-content">
-            <img id="collageLbImg" src="" alt="">
-            <div class="collage-lb-caption">
-                <span id="collageLbProject"></span>
-                <span id="collageLbCount"></span>
-            </div>
-        </div>
-        <button class="collage-lb-next" onclick="lbNav(1)">&#8249;</button>
     </div>
 </section>
 
@@ -592,84 +595,37 @@
 
 <script src="script.js"></script>
 <script>
-// ── Collage Gallery ─────────────────────────────────────────────────────────
-let lbPhotos = []; // all photos flat array: {src, project}
-let lbIndex  = 0;
-
-(async function loadCollage() {
+// ── Projects Grid — last 4 projects ────────────────────────────────────────
+(async function loadProjects() {
     try {
         const res = await fetch('assets/img/projects/gallery.json?v=' + Date.now());
         const projects = await res.json();
         if (!projects || !projects.length) return;
 
-        // Flatten all photos from all projects into one array
-        // First photo of first (newest) project gets featured large slot
-        const allPhotos = [];
-        projects.forEach(project => {
-            project.photos.forEach(p => {
-                allPhotos.push({ src: 'assets/img/' + p, project: project.name, date: project.date });
-            });
-        });
+        const grid = document.getElementById('projectsGrid');
+        const last4 = projects.slice(0, 4);
 
-        if (!allPhotos.length) return;
-
-        // Build collage — first photo large, rest fill in varied sizes
-        const container = document.getElementById('collageGrid');
-        let html = '';
-        allPhotos.forEach((photo, i) => {
-            // Assign varied sizes for visual interest: 0=tall, 3=wide, 7=tall, 10=wide...
-            let cls = '';
-            if (i === 0) cls = 'collage-tall';
-            else if (i % 7 === 3) cls = 'collage-wide';
-            else if (i % 7 === 6) cls = 'collage-tall';
-
-            html += `<div class="collage-item ${cls}" onclick="openLightbox(${i})">
-                <img src="${photo.src}" alt="${photo.project} - הקוטב הצפוני" loading="lazy">
-                <div class="collage-overlay"><span>${photo.project}</span></div>
-            </div>`;
-        });
-
-        lbPhotos = allPhotos;
-        container.innerHTML = html;
+        grid.innerHTML = last4.map(project => {
+            const cover = 'assets/img/' + project.cover;
+            const count = project.photos.length;
+            const date  = project.date || '';
+            return `
+            <a href="project.html?slug=${encodeURIComponent(project.slug)}" class="project-card">
+                <div class="project-card-img">
+                    <img src="${cover}" alt="${project.name} - הקוטב הצפוני" loading="lazy">
+                    <div class="project-card-count"><i class="fas fa-images"></i> ${count}</div>
+                </div>
+                <div class="project-card-info">
+                    <h3>${project.name}</h3>
+                    ${date ? `<span class="project-card-date">${date}</span>` : ''}
+                </div>
+            </a>`;
+        }).join('');
 
     } catch(e) {
         // Keep static fallback
     }
 })();
-
-// ── Lightbox ────────────────────────────────────────────────────────────────
-function openLightbox(index) {
-    lbIndex = index;
-    updateLightbox();
-    document.getElementById('collageLightbox').style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-}
-
-function closeLightbox() {
-    document.getElementById('collageLightbox').style.display = 'none';
-    document.body.style.overflow = '';
-}
-
-function lbNav(dir) {
-    lbIndex = (lbIndex + dir + lbPhotos.length) % lbPhotos.length;
-    updateLightbox();
-}
-
-function updateLightbox() {
-    const photo = lbPhotos[lbIndex];
-    if (!photo) return;
-    document.getElementById('collageLbImg').src = photo.src;
-    document.getElementById('collageLbProject').textContent = photo.project;
-    document.getElementById('collageLbCount').textContent = (lbIndex + 1) + ' / ' + lbPhotos.length;
-}
-
-document.addEventListener('keydown', e => {
-    const lb = document.getElementById('collageLightbox');
-    if (!lb || lb.style.display === 'none') return;
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowLeft') lbNav(-1);
-    if (e.key === 'ArrowRight') lbNav(1);
-});
 </script>
 </body>
 </html>

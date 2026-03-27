@@ -1,6 +1,19 @@
 [
   {
     "name": "בדיקה2",
+    "slug": "בדיקה2-8646",
+    "date": "2026-03-27",
+    "cover": "projects/בדיקה2-8646/001.jpg",
+    "photos": [
+      "projects/בדיקה2-8646/001.jpg",
+      "projects/בדיקה2-8646/002.jpg",
+      "projects/בדיקה2-8646/003.jpg",
+      "projects/בדיקה2-8646/004.jpg",
+      "projects/בדיקה2-8646/005.jpg"
+    ]
+  },
+  {
+    "name": "בדיקה2",
     "slug": "בדיקה2-9670",
     "date": "2026-03-27",
     "cover": "projects/בדיקה2-9670/001.jpg",

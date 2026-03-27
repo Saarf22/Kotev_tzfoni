@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>פרויקט | הקוטב הצפוני</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .project-page { min-height: 100vh; background: var(--navy); padding: 100px 24px 60px; }
+        .project-page-inner { max-width: 1100px; margin: 0 auto; }
+        .project-back { display: inline-flex; align-items: center; gap: 8px; color: var(--ice); font-weight: 600; font-size: 15px; margin-bottom: 32px; cursor: pointer; text-decoration: none; transition: gap 0.2s; }
+        .project-back:hover { gap: 14px; }
+        .project-title { font-size: clamp(28px, 5vw, 48px); font-weight: 900; color: var(--white); margin-bottom: 8px; }
+        .project-meta { font-size: 14px; color: rgba(255,255,255,0.4); margin-bottom: 48px; }
+        .project-photos-grid { columns: 3; column-gap: 12px; }
+        .project-photo-item { break-inside: avoid; margin-bottom: 12px; border-radius: 12px; overflow: hidden; cursor: zoom-in; position: relative; }
+        .project-photo-item img { width: 100%; display: block; border-radius: 12px; transition: transform 0.3s; }
+        .project-photo-item:hover img { transform: scale(1.03); }
+
+        /* Lightbox */
+        .ph-lb { position: fixed; inset: 0; z-index: 9999; display: none; align-items: center; justify-content: center; }
+        .ph-lb.open { display: flex; }
+        .ph-lb-bg { position: absolute; inset: 0; background: rgba(0,0,0,0.95); }
+        .ph-lb-img { position: relative; z-index: 1; max-width: 92vw; max-height: 88vh; border-radius: 12px; object-fit: contain; box-shadow: 0 0 80px rgba(0,0,0,0.8); }
+        .ph-lb-close { position: fixed; top: 20px; inset-inline-end: 20px; z-index: 2; background: rgba(255,255,255,0.1); border: none; color: #fff; font-size: 22px; width: 44px; height: 44px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .ph-lb-close:hover { background: rgba(0,180,216,0.4); }
+        .ph-lb-prev, .ph-lb-next { position: fixed; top: 50%; transform: translateY(-50%); z-index: 2; background: rgba(255,255,255,0.1); border: none; color: #fff; font-size: 36px; width: 52px; height: 52px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .ph-lb-prev:hover, .ph-lb-next:hover { background: rgba(0,180,216,0.4); }
+        .ph-lb-prev { inset-inline-end: 16px; }
+        .ph-lb-next { inset-inline-start: 16px; }
+        .ph-lb-count { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); z-index: 2; color: rgba(255,255,255,0.5); font-size: 14px; }
+
+        @media (max-width: 768px) {
+            .project-photos-grid { columns: 2; }
+            .project-page { padding: 80px 16px 40px; }
+        }
+        @media (max-width: 480px) {
+            .project-photos-grid { columns: 1; }
+        }
+    </style>
+</head>
+<body>
+<header class="navbar">
+    <div class="nav-container">
+        <div class="nav-logo">
+            <i class="fas fa-snowflake logo-icon"></i>
+            <div class="logo-text">
+                <span class="logo-main">הקוטב הצפוני</span>
+                <span class="logo-sub">מיזוג אוויר וחשמל</span>
+            </div>
+        </div>
+        <div class="nav-actions">
+            <a href="tel:0549506888" class="btn-call">
+                <i class="fas fa-phone"></i>
+                <span>054-950-6888</span>
+            </a>
+        </div>
+    </div>
+</header>
+
+<div class="project-page">
+    <div class="project-page-inner">
+        <a href="index.html#gallery" class="project-back">
+            <i class="fas fa-arrow-right"></i> חזרה לגלריה
+        </a>
+        <h1 class="project-title" id="pageTitle">טוען...</h1>
+        <p class="project-meta" id="pageMeta"></p>
+        <div class="project-photos-grid" id="photosGrid"></div>
+    </div>
+</div>
+
+<!-- Lightbox -->
+<div class="ph-lb" id="phLb">
+    <div class="ph-lb-bg" onclick="phClose()"></div>
+    <button class="ph-lb-close" onclick="phClose()">✕</button>
+    <button class="ph-lb-prev" onclick="phNav(-1)">&#8250;</button>
+    <img class="ph-lb-img" id="phLbImg" src="" alt="">
+    <button class="ph-lb-next" onclick="phNav(1)">&#8249;</button>
+    <span class="ph-lb-count" id="phLbCount"></span>
+</div>
+
+<script>
+let phPhotos = [];
+let phIdx = 0;
+
+(async function() {
+    const params = new URLSearchParams(location.search);
+    const slug = params.get('slug');
+    if (!slug) { location.href = 'index.html#gallery'; return; }
+
+    try {
+        const res = await fetch('assets/img/projects/gallery.json?v=' + Date.now());
+        const projects = await res.json();
+        const project = projects.find(p => p.slug === slug);
+        if (!project) { location.href = 'index.html#gallery'; return; }
+
+        document.title = project.name + ' | הקוטב הצפוני';
+        document.getElementById('pageTitle').textContent = project.name;
+        document.getElementById('pageMeta').textContent =
+            project.photos.length + ' תמונות' + (project.date ? ' · ' + project.date : '');
+
+        phPhotos = project.photos.map(p => 'assets/img/' + p);
+
+        const grid = document.getElementById('photosGrid');
+        grid.innerHTML = project.photos.map((p, i) => `
+            <div class="project-photo-item" onclick="phOpen(${i})">
+                <img src="assets/img/${p}" alt="${project.name} ${i+1}" loading="lazy">
+            </div>`).join('');
+    } catch(e) {
+        location.href = 'index.html#gallery';
+    }
+})();
+
+function phOpen(i) {
+    phIdx = i;
+    phUpdate();
+    document.getElementById('phLb').classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+function phClose() {
+    document.getElementById('phLb').classList.remove('open');
+    document.body.style.overflow = '';
+}
+function phNav(d) {
+    phIdx = (phIdx + d + phPhotos.length) % phPhotos.length;
+    phUpdate();
+}
+function phUpdate() {
+    document.getElementById('phLbImg').src = phPhotos[phIdx];
+    document.getElementById('phLbCount').textContent = (phIdx+1) + ' / ' + phPhotos.length;
+}
+document.addEventListener('keydown', e => {
+    if (!document.getElementById('phLb').classList.contains('open')) return;
+    if (e.key === 'Escape') phClose();
+    if (e.key === 'ArrowLeft') phNav(-1);
+    if (e.key === 'ArrowRight') phNav(1);
+});
+</script>
+</body>
+</html>
