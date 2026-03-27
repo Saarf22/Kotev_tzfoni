@@ -81,10 +81,19 @@ function saveGallery(data) {
 // ── Git push ────────────────────────────────────────────────────────────────
 function gitPush(message) {
     try {
-        execSync(`cd "${REPO_PATH}" && git add -A && git commit -m "${message}" && git push`, { stdio: 'inherit' });
+        // Use GIT_ASKPASS=echo to prevent password prompts and ensure credential helper is used
+        const env = Object.assign({}, process.env, {
+            GIT_TERMINAL_PROMPT: '0',
+            HOME: process.env.HOME || '/home/nvsaarz'
+        });
+        const safeMsg = message.replace(/"/g, "'");
+        execSync(
+            `git -C "${REPO_PATH}" add -A && git -C "${REPO_PATH}" commit -m "${safeMsg}" && git -C "${REPO_PATH}" push`,
+            { stdio: 'pipe', env }
+        );
         return true;
     } catch(e) {
-        console.error('Git push failed:', e.message);
+        console.error('Git push failed:', e.message, e.stderr?.toString());
         return false;
     }
 }
