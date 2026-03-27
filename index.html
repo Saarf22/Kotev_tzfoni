@@ -140,6 +140,53 @@
     </div>
 </section>
 
+<!-- GALLERY / MEDIA — moved right below hero -->
+<section class="section section-dark" id="gallery">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag section-tag-light" data-he="הפרויקטים שלנו" data-en="Our Work">הפרויקטים שלנו</span>
+            <h2 data-he="תמונות ומדיה" data-en="Photos & Media">תמונות ומדיה</h2>
+            <p class="section-desc section-desc-light" data-he="הצצה לעבודה שלנו בשטח" data-en="A glimpse of our work in the field">הצצה לעבודה שלנו בשטח</p>
+        </div>
+        <div class="gallery-grid" id="dynamicGallery">
+            <div class="gallery-card gallery-card-img gallery-card-large">
+                <img src="assets/img/hakotev-1.jpg" alt="עבודת מזגנים - הקוטב הצפוני" class="gallery-real-img" loading="lazy">
+                <div class="gallery-img-overlay"><h3 data-he="עבודה בשטח" data-en="Field Work">עבודה בשטח</h3></div>
+            </div>
+            <div class="gallery-card gallery-card-img">
+                <img src="assets/img/hakotev-4.jpg" alt="איציק דרורי - טכנאי מזגנים" class="gallery-real-img" loading="lazy">
+                <div class="gallery-img-overlay"><h3 data-he="איציק דרורי" data-en="Itzik Drori">איציק דרורי</h3></div>
+            </div>
+            <div class="gallery-card gallery-card-img">
+                <img src="assets/img/hakotev-2.jpg" alt="התקנת מזגן" class="gallery-real-img" loading="lazy">
+                <div class="gallery-img-overlay"><h3 data-he="התקנה מקצועית" data-en="Professional Installation">התקנה מקצועית</h3></div>
+            </div>
+            <div class="gallery-card gallery-card-img gallery-card-large">
+                <img src="assets/img/hakotev-3.jpg" alt="תיקון מזגן" class="gallery-real-img" loading="lazy">
+                <div class="gallery-img-overlay"><h3 data-he="תיקון ואבחון" data-en="Repair & Diagnosis">תיקון ואבחון</h3></div>
+            </div>
+            <a href="https://www.facebook.com/people/%D7%90%D7%99%D7%A6%D7%99%D7%A7-%D7%93%D7%A8%D7%95%D7%A8%D7%99-%D7%94%D7%A7%D7%95%D7%98%D7%91-%D7%94%D7%A6%D7%A4%D7%95%D7%A0%D7%99-%D7%9E%D7%99%D7%96%D7%95%D7%92-%D7%90%D7%95%D7%99%D7%A8-%D7%95%D7%97%D7%A9%D7%9E%D7%9C/100064091231168/" target="_blank" rel="noopener" class="gallery-card gallery-fb-card">
+                <div class="gallery-card-inner gallery-card-inner-full fb-link">
+                    <i class="fab fa-facebook fb-big-icon"></i>
+                    <div class="gallery-card-content">
+                        <h3 data-he="עוד תמונות וסרטונים" data-en="More Photos & Videos">עוד תמונות וסרטונים</h3>
+                        <p data-he="עקבו אחרינו בפייסבוק" data-en="Follow us on Facebook">עקבו אחרינו בפייסבוק</p>
+                        <span class="fb-cta" data-he="לעמוד הפייסבוק ←" data-en="Visit Facebook Page →">לעמוד הפייסבוק ←</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div id="projectModal" class="project-modal" style="display:none">
+            <div class="project-modal-backdrop" onclick="closeProjectModal()"></div>
+            <div class="project-modal-inner">
+                <button class="project-modal-close" onclick="closeProjectModal()">✕</button>
+                <h3 id="projectModalTitle"></h3>
+                <div class="project-modal-grid" id="projectModalGrid"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- SERVICES -->
 <section class="section" id="services">
     <div class="container">
@@ -288,58 +335,6 @@
                 <div class="why-icon"><i class="fas fa-headset"></i></div>
                 <h3 data-he="זמינות גבוהה" data-en="High Availability">זמינות גבוהה</h3>
                 <p data-he="זמין 6 ימים בשבוע, כולל שישי ומוצ״ש — כי תקלות לא מחכות." data-en="Available 6 days a week including Friday & Saturday night.">זמין 6 ימים בשבוע, כולל שישי ומוצ״ש — כי תקלות לא מחכות.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- GALLERY / MEDIA -->
-<section class="section section-dark" id="gallery">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-tag section-tag-light" data-he="הפרויקטים שלנו" data-en="Our Work">הפרויקטים שלנו</span>
-            <h2 data-he="תמונות ומדיה" data-en="Photos & Media">תמונות ומדיה</h2>
-            <p class="section-desc section-desc-light" data-he="הצצה לעבודה שלנו בשטח" data-en="A glimpse of our work in the field">הצצה לעבודה שלנו בשטח</p>
-        </div>
-
-        <!-- Dynamic gallery from gallery.json -->
-        <div class="gallery-grid" id="dynamicGallery">
-            <!-- Fallback static images shown until JS loads -->
-            <div class="gallery-card gallery-card-img gallery-card-large">
-                <img src="assets/img/hakotev-1.jpg" alt="עבודת מזגנים - הקוטב הצפוני" class="gallery-real-img" loading="lazy">
-                <div class="gallery-img-overlay"><h3 data-he="עבודה בשטח" data-en="Field Work">עבודה בשטח</h3></div>
-            </div>
-            <div class="gallery-card gallery-card-img">
-                <img src="assets/img/hakotev-4.jpg" alt="איציק דרורי - טכנאי מזגנים" class="gallery-real-img" loading="lazy">
-                <div class="gallery-img-overlay"><h3 data-he="איציק דרורי" data-en="Itzik Drori">איציק דרורי</h3></div>
-            </div>
-            <div class="gallery-card gallery-card-img">
-                <img src="assets/img/hakotev-2.jpg" alt="התקנת מזגן" class="gallery-real-img" loading="lazy">
-                <div class="gallery-img-overlay"><h3 data-he="התקנה מקצועית" data-en="Professional Installation">התקנה מקצועית</h3></div>
-            </div>
-            <div class="gallery-card gallery-card-img gallery-card-large">
-                <img src="assets/img/hakotev-3.jpg" alt="תיקון מזגן" class="gallery-real-img" loading="lazy">
-                <div class="gallery-img-overlay"><h3 data-he="תיקון ואבחון" data-en="Repair & Diagnosis">תיקון ואבחון</h3></div>
-            </div>
-            <a href="https://www.facebook.com/people/%D7%90%D7%99%D7%A6%D7%99%D7%A7-%D7%93%D7%A8%D7%95%D7%A8%D7%99-%D7%94%D7%A7%D7%95%D7%98%D7%91-%D7%94%D7%A6%D7%A4%D7%95%D7%A0%D7%99-%D7%9E%D7%99%D7%96%D7%95%D7%92-%D7%90%D7%95%D7%99%D7%A8-%D7%95%D7%97%D7%A9%D7%9E%D7%9C/100064091231168/" target="_blank" rel="noopener" class="gallery-card gallery-fb-card">
-                <div class="gallery-card-inner gallery-card-inner-full fb-link">
-                    <i class="fab fa-facebook fb-big-icon"></i>
-                    <div class="gallery-card-content">
-                        <h3 data-he="עוד תמונות וסרטונים" data-en="More Photos & Videos">עוד תמונות וסרטונים</h3>
-                        <p data-he="עקבו אחרינו בפייסבוק" data-en="Follow us on Facebook">עקבו אחרינו בפייסבוק</p>
-                        <span class="fb-cta" data-he="לעמוד הפייסבוק ←" data-en="Visit Facebook Page →">לעמוד הפייסבוק ←</span>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <!-- Project lightbox modal -->
-        <div id="projectModal" class="project-modal" style="display:none">
-            <div class="project-modal-backdrop" onclick="closeProjectModal()"></div>
-            <div class="project-modal-inner">
-                <button class="project-modal-close" onclick="closeProjectModal()">✕</button>
-                <h3 id="projectModalTitle"></h3>
-                <div class="project-modal-grid" id="projectModalGrid"></div>
             </div>
         </div>
     </div>
